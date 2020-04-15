@@ -9,7 +9,7 @@ namespace AcsTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Score("xxxxxxxxxxxx").ToString());
+            Console.WriteLine(Score("8/8052x4/258/x620/5").ToString());
         }
 
         public static int Score(string scoreCard)
@@ -95,7 +95,7 @@ namespace AcsTest
                 }
                 else
                 {
-                    scoreTotal += ScoreLastFrame(_frameList[i].Index);
+                    scoreTotal += ScoreLastFrame(_frameList[i]);
                 }
             }
             return scoreTotal;
@@ -104,7 +104,7 @@ namespace AcsTest
         private int getSpareBonus(int frameIndex)
         {
             int bonus = 0;
-            char[] subString = _scoreString.Substring(frameIndex+1).ToCharArray();
+            char[] subString = _scoreString.Substring(frameIndex).ToCharArray();
             if (subString.Length > 1)
             {
                 if (subString[0] == 'x')
@@ -122,7 +122,7 @@ namespace AcsTest
         private int getStrikeBonus(int frameIndex)
         {
             int bonus = 0;
-            char[] subString = _scoreString.Substring(frameIndex + 1).ToCharArray();
+            char[] subString = _scoreString.Substring(frameIndex).ToCharArray();
             if (subString.Length > 2)
             {
                 for (int i = 0; i<2;i++)
@@ -143,11 +143,10 @@ namespace AcsTest
 
         }
 
-        public int ScoreLastFrame(int frameIndex)
+        public int ScoreLastFrame(Frame frame)
         {
-            int currentIndex = frameIndex;
             int testIndex = 0;
-            string subString = _scoreString.Substring(currentIndex);
+            string subString = frame.FrameString;
             int score = 0;
 
             foreach (char item in subString)
@@ -234,6 +233,10 @@ namespace AcsTest
             {
                 return _index;
             }
+            set
+            {
+                _index = value;
+            }
         }
 
         public bool HasStrike
@@ -276,6 +279,7 @@ namespace AcsTest
         {
             foreach (char roll in frameString)
             {
+                _index++;
                 if (roll.Equals('x') || roll.Equals('/'))
                 {
                     _score = 10;
