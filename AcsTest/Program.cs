@@ -21,7 +21,7 @@ namespace AcsTest
 
             for (int i = 0; i<scoreCardArray.Length; i++)
             {
-                if (frames.Count < 10)
+                if (frames.Count < 9)
                 {
                     if (frameIndex == 0)
                     {
@@ -78,7 +78,7 @@ namespace AcsTest
             int scoreTotal = 0;
             for(int i = 0;i< _frameList.Count; i++)
             {
-                if (i != 10)
+                if (i < 9)
                 {
                     if (!_frameList[i].HasSpare && !_frameList[i].HasStrike)
                     {
@@ -145,7 +145,7 @@ namespace AcsTest
 
         public int ScoreLastFrame(int frameIndex)
         {
-            int currentIndex = frameIndex+1;
+            int currentIndex = frameIndex;
             int testIndex = 0;
             string subString = _scoreString.Substring(currentIndex);
             int score = 0;
