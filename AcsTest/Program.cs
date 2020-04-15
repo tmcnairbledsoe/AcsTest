@@ -135,7 +135,7 @@ namespace AcsTest
                         return 10;
                     }else
                     {
-                        bonus += Convert.ToInt32(subString[0].ToString());
+                        bonus += Convert.ToInt32(subString[i].ToString());
                     }
                 }
             }
