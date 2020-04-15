@@ -182,6 +182,7 @@ namespace AcsTest
                 else if (item.Equals('/'))
                 {
                     int count = 0;
+                    score = 10;
                     foreach (char item2 in subString.Substring(testIndex + 1))
                     {
                         if (count < 1)
