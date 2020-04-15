@@ -158,7 +158,7 @@ namespace AcsTest
                     int bonus = 0;
                     if (subString.Length > 0)
                     {
-                        foreach (char item2 in subString.Substring(testIndex))
+                        foreach (char item2 in subString.Substring(testIndex + 1))
                         {
                             if (count < 2)
                             {
@@ -183,7 +183,7 @@ namespace AcsTest
                 else if (item.Equals('/'))
                 {
                     int count = 0;
-                    foreach (char item2 in subString.Substring(testIndex))
+                    foreach (char item2 in subString.Substring(testIndex + 1))
                     {
                         if (count < 1)
                         {
